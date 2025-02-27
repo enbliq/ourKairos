@@ -9,9 +9,6 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#6366F1",
-        primaryDark: "#4338CA",
-
         "Heading/H1-main": "#10B981",
         "Heading/H1-mainTwo": "#000000",
         "Heading/H1-mainThree": "#F8FAFC",
@@ -26,7 +23,8 @@ const config: Config = {
         "Button/Primary-backgroundTwo": "#F1F5F9",
         "Checkbox/Checked": "#10B981",
         "Checkbox/Unchecked": "#D9D9D9",
-
+        lavender: "#f8f6ff",
+        purpleCustom: "#8b5cf6",
         background: "var(--background)",
         foreground: "var(--foreground)",
       },

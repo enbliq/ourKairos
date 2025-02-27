@@ -15,7 +15,10 @@ export default function PublicLayout({ children }: LayoutProps) {
 
   return (
     <>
+      {/* Layout normal para rutas públicas no-auth */}
+      <header>Public page layout</header>
       <main>{children}</main>
+      <footer>{/* ... tu footer existente ... */}</footer>
     </>
   );
 }

@@ -11,6 +11,7 @@ const publicPathStarts = [
   "/explore",
   "lost-in-time",
   "/treasure",
+  "/contact",
 ];
 const adminPathStarts = ["/admin"];
 
@@ -22,7 +23,7 @@ const authMiddleware: MiddlewareFactory = (next) => {
 
     const isAdminSection = checkPathStartsWith(
       request.nextUrl.pathname,
-      adminPathStarts,
+      adminPathStarts
     );
 
     return withAuth({
