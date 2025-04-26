@@ -66,11 +66,16 @@ function BaseField<T extends FieldValues>(
       <label className="flex flex-col gap-2.5">
         <div className="flex text-sm">
           <div className="grow">
-            <span className="font-bold">
+            <span className="font-semibold text-xl font-kumbhSans">
               {label} {optional && "(Optional)"}
               {!!details && ":"}
             </span>
-            {details && <span className="text-gray-700"> {details}</span>}
+            {details && (
+              <span className="text-base font-medium text-[#3C3C3C] font-kumbhSans">
+                {" "}
+                {details}
+              </span>
+            )}
           </div>
           {toggleable && (
             <Toggle

@@ -2,12 +2,13 @@
 
 import React, { useState } from "react";
 import CapsuleCard from "./CapsuleCard";
+import { useRouter } from "next/navigation";
 
 type CapsuleStatus = "public" | "sent" | "received";
 
 // Placeholder capsule data matching the CapsuleCard props
 const placeholderCapsules = Array.from({ length: 30 }, (_, i) => ({
-  name: `Click below to reveal your time capsule and uncover its surprise ${i + 1}`,
+  name: `Surprise Capsule ${i + 1}`,
   description: "A special memory waiting to be discovered",
   timeCreated: `March ${Math.floor(Math.random() * 30) + 1}th, 2025 ${Math.floor(Math.random() * 12) + 1}:${Math.floor(Math.random() * 59) + 1}pm`,
   unveilTime: `${Math.floor(Math.random() * 10)} days, ${Math.floor(Math.random() * 23)} hours, ${Math.floor(Math.random() * 59)} minutes`,
@@ -21,6 +22,7 @@ const placeholderCapsules = Array.from({ length: 30 }, (_, i) => ({
 const CapsulsPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<CapsuleStatus>("sent");
   const [itemsPerPage, setItemsPerPage] = useState(8);
+  const router = useRouter();
 
   const filteredCapsules = placeholderCapsules.filter(
     (capsule) => capsule.status === activeTab,
@@ -74,7 +76,10 @@ const CapsulsPage: React.FC = () => {
     <div className="mx-auto px:12 md:mx-9">
       <div className="flex justify-between my-12">
         {renderTabs()}
-        <button className="bg-gradient-to-r from-[#37945E] to-[#34D399] text-white px-4 py-2 rounded font-bold">
+        <button
+          className="bg-gradient-to-r from-[#37945E] to-[#34D399] text-white px-4 py-2 rounded font-bold"
+          onClick={() => router.push("/capsules/create-capsule")}
+        >
           Create New Capsule
         </button>
       </div>

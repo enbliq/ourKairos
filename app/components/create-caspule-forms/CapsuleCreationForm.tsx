@@ -1,24 +1,26 @@
 import Input from "@/app/components/form/Input";
-import TextArea from "@/app/components/form/TextArea";
+import RichTextField from "../RichText";
+import { useFormContext } from "react-hook-form";
 
 export default function CapsuleCreationForm() {
+  const { watch, setValue } = useFormContext();
+  const message = watch("message") || "";
+
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-1">
+      <Input name="senderName" label="Sender Name" placeholder="Enter a name" />
       <Input
         name="name"
         label="Capsule Name"
         details="Give your capsule a meaningful title"
         placeholder="Name"
       />
-      <TextArea
-        className="min-h-[240px]"
-        name="message"
-        optional
-        label="Message"
-        details="Write something memorable..."
-        placeholder="Start typing......"
+      <RichTextField
+        message={message}
+        onMessageChange={(value) =>
+          setValue("message", value, { shouldValidate: true })
+        }
       />
-      <Input name="senderName" label="Sender Name" placeholder="Enter a name" />
     </div>
   );
 }

@@ -74,8 +74,34 @@ export default function CapsuleDeliveryForm() {
   }
 
   function onGenerateLink(ev: MouseEvent) {
-    setValue("shareLink", "https://example.com/fake-url");
+    // Generate a unique link with timestamp and random components
+    const timestamp = Date.now().toString(36); // Base36 timestamp
+    const randomPart = generateRandomString(8); // 8 character random string
+    const uniqueLink = `https://example.com/${timestamp}-${randomPart}`;
+
+    setValue("shareLink", uniqueLink);
     ev.preventDefault();
+  }
+
+  function generateRandomString(length: number): string {
+    const charset =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let result = "";
+
+    if (window.crypto && window.crypto.getRandomValues) {
+      const values = new Uint32Array(length);
+      window.crypto.getRandomValues(values);
+
+      for (let i = 0; i < length; i++) {
+        result += charset[values[i] % charset.length];
+      }
+    } else {
+      for (let i = 0; i < length; i++) {
+        result += charset[Math.floor(Math.random() * charset.length)];
+      }
+    }
+
+    return result;
   }
 
   function onCopyLink(ev: MouseEvent) {

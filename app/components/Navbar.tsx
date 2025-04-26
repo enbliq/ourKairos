@@ -1,21 +1,54 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { Menu, Search, X } from "lucide-react";
 import Notification from "./Notification";
 import UserAvatar from "./UserAvatar";
 
 interface NavbarProps {
-  currentRouteName: string;
   toggleMobileMenu: () => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({
-  currentRouteName,
-  toggleMobileMenu,
-}) => {
+const Navbar: React.FC<NavbarProps> = ({ toggleMobileMenu }) => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [currentRouteName, setCurrentRouteName] = useState("");
+
+  const notificationsArray = [
+    {
+      title: "Capsule Name",
+      date: "March 14, 2023",
+      time: "2:15pm",
+      days: 5,
+      hours: 12,
+      minutes: 30,
+      isPrivate: true,
+    },
+    {
+      title: "Not Name",
+      date: "March 14, 2023",
+      time: "2:15pm",
+      days: 5,
+      hours: 12,
+      minutes: 30,
+      isPrivate: false,
+    },
+  ];
+  const pathname = usePathname();
+
+  useEffect(() => {
+    if (pathname) {
+      const segments = pathname.split("/").filter(Boolean);
+      if (segments.length > 0) {
+        const routeName =
+          segments[0].charAt(0).toUpperCase() + segments[0].slice(1);
+        setCurrentRouteName(routeName);
+      } else {
+        setCurrentRouteName("Dashboard");
+      }
+    }
+  }, [pathname]);
 
   return (
-    <header className="h-16 sticky top-0 z-30 flex items-center justify-between px-4 sm:px-6 py-3 border-b bg-white">
+    <header className="h-[5rem] sticky top-0 z-30 flex items-center justify-between p-6 border-b bg-white">
       <div className="flex items-center">
         <button
           onClick={toggleMobileMenu}
@@ -59,10 +92,9 @@ const Navbar: React.FC<NavbarProps> = ({
           <input
             type="text"
             placeholder="Search"
-            className="pl-9 pr-4 py-2 rounded-lg bg-gray-50 border-none text-sm focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-600 w-[280px] placeholder:text-gray-400"
+            className="pl-9 pr-4 py-2 rounded-lg bg-gray-50 border-none text-sm focus:outline-none  focus:ring-0 text-gray-600 w-[280px] placeholder:text-gray-400"
           />
         </div>
-
         {/* Mobile Search Button */}
         <button
           onClick={() => setIsSearchOpen(true)}
@@ -72,7 +104,7 @@ const Navbar: React.FC<NavbarProps> = ({
         </button>
 
         <div className="flex items-center gap-4">
-          <Notification count={1} />
+          <Notification notifications={notificationsArray} />
           <div className="hidden sm:block h-8 w-[1px] bg-gray-200"></div>
           <UserAvatar name="Assad User1" />
         </div>

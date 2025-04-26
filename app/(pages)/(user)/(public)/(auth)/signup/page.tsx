@@ -8,7 +8,7 @@ import AuthInput, {
   passwordSchema,
 } from "../../../../../components/authInput";
 import Link from "next/link";
-import { logger } from "@/app/utils/logger";
+import logger from "@/app/utils/logger";
 import AuthScreenLayout from "@/app/components/AuthScreenLayout";
 
 // Define form value types
@@ -83,7 +83,7 @@ const SignupPage = () => {
           errors.walletAddress = err.errors[0].message;
           logger.warn(
             "Wallet address validation failed:",
-            err.errors[0].message
+            err.errors[0].message,
           );
         }
       }
@@ -95,7 +95,7 @@ const SignupPage = () => {
   // Handle form submission
   const handleSubmit = (
     values: SignupFormValues,
-    { setSubmitting }: FormikHelpers<SignupFormValues>
+    { setSubmitting }: FormikHelpers<SignupFormValues>,
   ) => {
     // Log form submission
     logger.info("Signup form submitted with values:", {

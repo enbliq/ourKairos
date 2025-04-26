@@ -80,7 +80,8 @@ function FileUpload<T extends FieldValues>(
 
       if (imageTypes.includes(file.type)) {
         const tmpFileUrl = URL.createObjectURL(file);
-        return <img src={tmpFileUrl} />;
+        // eslint-disable-next-line @next/next/no-img-element
+        return <img src={tmpFileUrl} alt="temp" />;
       }
 
       if (videoTypes.includes(file.type)) {
@@ -117,8 +118,10 @@ function FileUpload<T extends FieldValues>(
           <div className="h-[44px] w-[44px] bg-gray-100 rounded-full flex flex-col items-center justify-center mb-6">
             <svgs.Camera />
           </div>
-          <p className="flex flex-wrap gap-x-5 justify-center">
-            <span className="font-medium text-center">Click to Upload</span>{" "}
+          <p className="flex flex-wrap gap-x-2 justify-center">
+            <span className="font-medium text-center font-kumbhSans">
+              Click to Upload
+            </span>{" "}
             <span className="text-gray-700">or drag</span>
           </p>
           {maxFileSize && (
@@ -134,8 +137,10 @@ function FileUpload<T extends FieldValues>(
     if (multiple) {
       return (
         <>
-          <p className="flex flex-wrap gap-x-5 justify-center mt-2">
-            <span className="font-medium text-center">Click to Add</span>{" "}
+          <p className="flex flex-wrap gap-x-2 justify-center mt-2">
+            <span className="font-medium text-center font-kumbhSans">
+              Click to Add
+            </span>{" "}
             <span className="text-gray-700">or drag</span>
           </p>
           {renderRemoveButton()}
@@ -145,8 +150,10 @@ function FileUpload<T extends FieldValues>(
 
     return (
       <>
-        <p className="flex flex-wrap gap-x-5 justify-center mt-2">
-          <span className="font-medium text-center">Click to Change</span>{" "}
+        <p className="flex flex-wrap gap-x-2 justify-center mt-2">
+          <span className="font-medium text-center font-kumbhSans">
+            Click to Change
+          </span>{" "}
           <span className="text-gray-700">or drag</span>
         </p>
         {renderRemoveButton()}

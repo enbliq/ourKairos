@@ -46,7 +46,7 @@ export default function CapsuleCountDown(props: CapsuleCountDownProps) {
   );
 
   function renderDatePassed() {
-    return <div>Already available</div>;
+    return <div>Already visible</div>;
   }
 
   function renderCountDown() {
