@@ -1,0 +1,23 @@
+services:
+  mongo:
+    image: mongo:7
+    ports:
+      - "27017:27017"
+
+  api:
+    build:
+      context: .
+      dockerfile: ./docker/api.Dockerfile
+    environment:
+      MONGO_URI: mongodb://mongo:27017/ourkairos
+    depends_on:
+      - mongo
+
+  web:
+    build:
+      context: .
+      dockerfile: ./docker/web.Dockerfile
+    environment:
+      NEXT_PUBLIC_API_URL: http://api:3001
+    depends_on:
+      - api
