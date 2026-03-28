@@ -1,10 +1,5 @@
 # ourKairos
 
-- `tooling/api-module-template` contains the baseline Express module structure for future API features.
-- `docs/api-architecture.md` documents the intended module registration pattern.
-
-The repository includes a framework-agnostic contracts package in `packages/contracts` for request and response payload definitions shared across future apps and services.
-
 ## Workspace scripts
 
 - `pnpm check:workspace` validates root workspace files and package manifests.
