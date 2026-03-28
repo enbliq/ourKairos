@@ -1,0 +1,18 @@
+{
+  "navbar": {
+    "home": "Inicio",
+    "dashboard": "Panel",
+    "login": "Iniciar sesión"
+  },
+  "login": {
+    "title": "Bienvenido de nuevo",
+    "action": "Entrar"
+  },
+  "dashboard": {
+    "title": "Tu panel de cápsulas"
+  },
+  "home": {
+    "title": "ourKairos",
+    "subtitle": "Cápsulas del tiempo para tu yo futuro."
+  }
+}

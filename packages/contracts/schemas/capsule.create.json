@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ourkairos.dev/schemas/capsule.create.json",
+  "title": "CreateCapsuleInput",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "title",
+    "unlockDate",
+    "recipient"
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 100
+    },
+    "message": {
+      "type": "string",
+      "maxLength": 5000
+    },
+    "unlockDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "recipient": {
+      "$ref": "#/$defs/recipient"
+    },
+    "attachment": {
+      "$ref": "#/$defs/attachment"
+    },
+    "gift": {
+      "$ref": "#/$defs/gift"
+    }
+  },
+  "$defs": {
+    "recipient": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "deliveryChannel"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "deliveryChannel": {
+          "enum": [
+            "link",
+            "email"
+          ]
+        }
+      }
+    },
+    "attachment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "url",
+        "mimeType"
+      ],
+      "properties": {
+        "kind": {
+          "const": "image"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "mimeType": {
+          "type": "string"
+        }
+      }
+    },
+    "gift": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "network",
+        "assetCode",
+        "amount",
+        "status"
+      ],
+      "properties": {
+        "network": {
+          "enum": [
+            "stellar-testnet",
+            "stellar-mainnet"
+          ]
+        },
+        "assetCode": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 12
+        },
+        "amount": {
+          "type": "string",
+          "pattern": "^[0-9]+(\\.[0-9]+)?$"
+        },
+        "status": {
+          "enum": [
+            "pending",
+            "funded",
+            "released"
+          ]
+        }
+      }
+    }
+  }
+}
