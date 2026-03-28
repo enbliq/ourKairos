@@ -1,5 +1,8 @@
 # ourKairos
 
+## Reference templates
+
+The repository includes a merge-safe authentication foundation template in `tooling/auth-foundation-template`.
 
 - `tooling/api-module-template` contains the baseline Express module structure for future API features.
 - `docs/api-architecture.md` documents the intended module registration pattern.
