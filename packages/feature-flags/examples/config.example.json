@@ -1,0 +1,63 @@
+{
+  "environment": "production",
+  "flags": {
+    "maintenance-mode": {
+      "type": "boolean",
+      "enabled": false
+    },
+    "new-dashboard": {
+      "type": "percentage",
+      "percentage": 30
+    },
+    "dark-mode": {
+      "type": "boolean",
+      "enabled": true
+    },
+    "beta-features": {
+      "type": "percentage",
+      "percentage": 10
+    },
+    "admin-panel": {
+      "type": "targeting",
+      "rules": [
+        {
+          "trait": "role",
+          "operator": "eq",
+          "value": "admin",
+          "enabled": true
+        }
+      ],
+      "defaultEnabled": false
+    },
+    "premium-features": {
+      "type": "targeting",
+      "rules": [
+        {
+          "trait": "tier",
+          "operator": "in",
+          "value": ["premium", "enterprise"],
+          "enabled": true
+        }
+      ],
+      "defaultEnabled": false
+    },
+    "early-access": {
+      "type": "targeting",
+      "rules": [
+        {
+          "trait": "accountAge",
+          "operator": "gt",
+          "value": 365,
+          "enabled": true
+        },
+        {
+          "trait": "tier",
+          "operator": "eq",
+          "value": "enterprise",
+          "enabled": true
+        }
+      ],
+      "defaultEnabled": false
+    }
+  }
+}

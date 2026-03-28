@@ -1,0 +1,40 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --exec ts-node src/index.ts",
+    "build": "tsc",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "echo \"No tests configured yet for api\"",
+    "seed": "ts-node -P tsconfig.scripts.json scripts/seed.ts",
+    "seed:teardown": "ts-node -P tsconfig.scripts.json scripts/seed.ts --teardown"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.14.0",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "mongoose": "^9.1.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "@faker-js/faker": "^10.3.0",
+    "@ourkairos/config": "workspace:*",
+    "@types/cors": "^2.8.19",
+    "@types/eslint": "^9.6.1",
+    "@types/express": "^5.0.6",
+    "@types/node": "^20.19.30",
+    "eslint": "^9.39.2",
+    "globals": "^17.1.0",
+    "nodemon": "^3.1.11",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.53.1"
+  }
+}
