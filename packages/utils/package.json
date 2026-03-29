@@ -1,0 +1,15 @@
+{
+  "name": "@ourkairos/utils",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "zod": "^4.1.12"
+  },
+  "scripts": {
+    "test": "echo \"No tests configured yet for @ourkairos/utils\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.14.0"
+}

@@ -1,0 +1,17 @@
+{
+  "name": "ourkairos",
+  "private": true,
+  "version": "0.1.0",
+  "description": "ourKairos monorepo workspace",
+  "packageManager": "pnpm@10.14.0",
+  "scripts": {
+    "check:workspace": "node ./scripts/validate-workspace.mjs",
+    "build": "pnpm run check:workspace",
+    "lint": "pnpm run check:workspace",
+    "typecheck": "pnpm run check:workspace",
+    "test": "pnpm run check:workspace"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

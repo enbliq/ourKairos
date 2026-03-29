@@ -1,0 +1,18 @@
+{
+  "navbar": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "login": "Login"
+  },
+  "login": {
+    "title": "Welcome back",
+    "action": "Sign in"
+  },
+  "dashboard": {
+    "title": "Your Capsule Dashboard"
+  },
+  "home": {
+    "title": "ourKairos",
+    "subtitle": "Time capsules for your future self."
+  }
+}

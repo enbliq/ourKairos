@@ -1,0 +1,14 @@
+{
+  "login": {
+    "title": "Welcome back",
+    "action": "Send code"
+  },
+  "dashboard": {
+    "title": "Your capsules",
+    "empty": "Create your first time capsule."
+  },
+  "recipient": {
+    "locked": "This capsule is still locked",
+    "unlocked": "Your capsule is ready"
+  }
+}

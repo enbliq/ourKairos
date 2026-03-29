@@ -1,29 +1,65 @@
 name: CI
 
 on:
-  pull_request:
   push:
-    branches:
-      - main
+    branches: ['dev']
+  pull_request:
+    types: [opened, synchronize]
 
 jobs:
-  workspace-check:
+  build:
+    name: Lint, Typecheck, Build, and Test
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: ⬇️ Checkout Repo
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
 
-      - name: Set up Node.js
+      - name: 🟢 Setup Node.js 20
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: Verify repository structure
-        run: |
-          test -f README.md
-          test -d tooling
-          test -d docs
+      - name: 🥡 Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 10.14.0
 
-      - name: Report baseline status
-        run: echo "CI baseline passed for repository scaffolding."
+      - name: 🧩 Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: ♻️ Setup pnpm cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: ♻️ Restore Turbo cache
+        uses: actions/cache@v4
+        with:
+          path: .turbo/cache
+          key: ${{ runner.os }}-turbo-${{ github.ref_name }}-${{ hashFiles('**/pnpm-lock.yaml', 'turbo.json', '.github/workflows/ci.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-${{ github.ref_name }}-
+            ${{ runner.os }}-turbo-
+
+      - name: 📦 Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: 🔍 Lint (All Apps)
+        run: pnpm turbo lint
+
+      - name: 📐 Type Check (All Apps)
+        run: pnpm turbo typecheck
+
+      - name: 🏗️ Build (All Apps)
+        run: pnpm turbo build
+
+      - name: 🧪 Test (All Apps)
+        run: pnpm turbo test
