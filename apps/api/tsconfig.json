@@ -1,0 +1,9 @@
+{
+    "extends": "@ourkairos/config/tsconfig.base.json",
+    "compilerOptions": {
+        "outDir": "./dist",
+        "rootDir": "./src",
+        "esModuleInterop": true
+    },
+    "include": ["src/**/*.ts"]
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ourkairos.dev/schemas/capsule.update.json",
+  "title": "UpdateCapsuleInput",
+  "allOf": [
+    {
+      "$ref": "./capsule.create.json"
+    },
+    {
+      "type": "object",
+      "required": []
+    }
+  ]
+}

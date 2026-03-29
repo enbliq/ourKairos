@@ -1,0 +1,17 @@
+{
+  "users": [
+    {
+      "role": "sender",
+      "email": "demo.sender@ourkairos.dev"
+    },
+    {
+      "role": "recipient",
+      "email": "demo.recipient@ourkairos.dev"
+    }
+  ],
+  "capsuleScenarios": [
+    "draft",
+    "sealed",
+    "unlocked"
+  ]
+}
