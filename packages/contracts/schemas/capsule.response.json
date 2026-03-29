@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ourkairos.dev/schemas/capsule.response.json",
+  "title": "CapsuleRecord",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "ownerId",
+    "title",
+    "unlockDate",
+    "recipient",
+    "status",
+    "createdAt",
+    "updatedAt"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "ownerId": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    },
+    "unlockDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "recipient": {
+      "$ref": "./capsule.create.json#/$defs/recipient"
+    },
+    "attachment": {
+      "$ref": "./capsule.create.json#/$defs/attachment"
+    },
+    "gift": {
+      "$ref": "./capsule.create.json#/$defs/gift"
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "sealed",
+        "unlocked"
+      ]
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "apps": {
+    "api": {
+      "path": "apps/api",
+      "exampleFile": ".env.example",
+      "required": [
+        "MONGO_URI",
+        "PORT"
+      ],
+      "optional": [
+        "FAILURE_HARNESS_ENABLED",
+        "FAILURE_HARNESS_SCENARIO"
+      ]
+    },
+    "web": {
+      "path": "apps/web",
+      "exampleFile": ".env.example",
+      "required": [
+        "NEXT_PUBLIC_API_URL"
+      ],
+      "optional": [
+        "NEXT_PUBLIC_DEFAULT_LOCALE"
+      ]
+    },
+    "stellar": {
+      "path": "apps/stellar",
+      "exampleFile": ".env.example",
+      "required": [
+        "STELLAR_SECRET_KEY"
+      ],
+      "optional": [
+        "STELLAR_NETWORK",
+        "STELLAR_HORIZON_URL"
+      ]
+    }
+  }
+}
