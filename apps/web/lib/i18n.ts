@@ -8,6 +8,7 @@ export type Messages = {
     home: string;
     dashboard: string;
     login: string;
+    admin: string;
   };
   login: {
     title: string;
@@ -31,6 +32,24 @@ export type Messages = {
   home: {
     title: string;
     subtitle: string;
+  };
+  errors: {
+    generic: string;
+    retry: string;
+    loading: string;
+  };
+  admin: {
+    title: string;
+    users: string;
+    capsules: string;
+    recent: string;
+  };
+  claim: {
+    title: string;
+    locked: string;
+    unlocked: string;
+    acknowledge: string;
+    acknowledged: string;
   };
 };
 

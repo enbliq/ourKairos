@@ -2,7 +2,8 @@
   "navbar": {
     "home": "Home",
     "dashboard": "Dashboard",
-    "login": "Login"
+    "login": "Login",
+    "admin": "Admin"
   },
   "login": {
     "title": "Welcome back",
@@ -26,5 +27,23 @@
   "home": {
     "title": "ourKairos",
     "subtitle": "Time capsules for your future self."
+  },
+  "errors": {
+    "generic": "Something went wrong. Please try again.",
+    "retry": "Retry",
+    "loading": "Loading..."
+  },
+  "admin": {
+    "title": "Admin Dashboard",
+    "users": "Total Users",
+    "capsules": "Total Capsules",
+    "recent": "Recent Capsules"
+  },
+  "claim": {
+    "title": "Your Gift",
+    "locked": "This gift is not yet available. Check back after the unlock date.",
+    "unlocked": "Your gift is ready!",
+    "acknowledge": "Mark as Claimed",
+    "acknowledged": "Gift claimed!"
   }
 }
