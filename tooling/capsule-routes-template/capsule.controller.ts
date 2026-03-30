@@ -6,6 +6,7 @@ export interface CapsuleControllerDependencies {
   getById(id: string): Promise<unknown>;
   updateDraft(id: string, input: unknown): Promise<unknown>;
   seal(id: string): Promise<unknown>;
+  duplicate(id: string): Promise<unknown>;
 }
 
 export const createCapsuleController = (dependencies: CapsuleControllerDependencies) => ({
@@ -23,5 +24,8 @@ export const createCapsuleController = (dependencies: CapsuleControllerDependenc
   },
   seal: async (request: Request, response: Response) => {
     response.json(await dependencies.seal(request.params.id));
-  }
+  },
+  duplicate: async (request: Request, response: Response) => {
+    response.status(201).json(await dependencies.duplicate(request.params.id));
+  },
 });

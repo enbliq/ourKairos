@@ -37,5 +37,18 @@ export const createCapsuleService = (repository: CapsuleRepository) => ({
   },
   listByOwner(ownerId: string) {
     return repository.listByOwner(ownerId);
-  }
+  },
+  async duplicate(id: string): Promise<CapsuleRecord> {
+    const source = await repository.findById(id);
+    if (!source) {
+      throw new Error("Capsule not found");
+    }
+
+    return repository.create({
+      ownerId: source.ownerId,
+      title: `${source.title} (copy)`,
+      message: source.message,
+      unlockDate: source.unlockDate,
+    });
+  },
 });

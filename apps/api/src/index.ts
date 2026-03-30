@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import { connectDB } from './db/connect';
+import { flags } from './flags';
 
 dotenv.config();
 
@@ -23,6 +24,16 @@ app.get('/health', (req, res) => {
     status: 'ok',
     service: 'api',
     timestamp: new Date().toISOString(),
+  });
+});
+
+// Expose active feature flags (read-only, no user context required for boolean flags)
+app.get('/flags', (_req, res) => {
+  const systemUser = { id: '__system__' };
+  res.json({
+    'gift-flow': flags.isEnabled('gift-flow', systemUser),
+    'reminders': flags.isEnabled('reminders', systemUser),
+    'email-delivery': flags.isEnabled('email-delivery', systemUser),
   });
 });
 
