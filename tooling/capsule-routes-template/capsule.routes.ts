@@ -10,6 +10,7 @@ export const createCapsuleRouter = (dependencies: CapsuleControllerDependencies)
   router.get("/capsules/:id", controller.detail);
   router.patch("/capsules/:id", controller.update);
   router.post("/capsules/:id/seal", controller.seal);
+  router.post("/capsules/:id/duplicate", controller.duplicate);
 
   return router;
 };

@@ -10,6 +10,9 @@ importers:
 
   apps/api:
     dependencies:
+      '@repo/feature-flags':
+        specifier: workspace:*
+        version: link:../../packages/feature-flags
       cors:
         specifier: ^2.8.6
         version: 2.8.6
