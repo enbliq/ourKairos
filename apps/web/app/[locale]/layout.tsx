@@ -26,6 +26,9 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
             <Link href={`/${locale}`}>{messages.navbar.home}</Link>
             <Link href={`/${locale}/dashboard`}>{messages.navbar.dashboard}</Link>
             <Link href={`/${locale}/login`}>{messages.navbar.login}</Link>
+            <Link href={`/${locale}/admin`} className="text-slate-400 hover:text-slate-700">
+              {messages.navbar.admin}
+            </Link>
           </div>
         </div>
       </nav>

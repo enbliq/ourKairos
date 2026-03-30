@@ -1,12 +1,12 @@
 import { notFound } from 'next/navigation';
 import { getMessages, isLocale, type Locale } from '@/lib/i18n';
-import { DashboardShell } from '@/components/DashboardShell';
+import { AdminDashboard } from '@/components/AdminDashboard';
 
-type DashboardPageProps = {
+type AdminPageProps = {
   params: Promise<{ locale: string }>;
 };
 
-export default async function DashboardPage({ params }: DashboardPageProps) {
+export default async function AdminPage({ params }: AdminPageProps) {
   const { locale } = await params;
   if (!isLocale(locale)) {
     notFound();
@@ -14,5 +14,5 @@ export default async function DashboardPage({ params }: DashboardPageProps) {
 
   const messages = await getMessages(locale as Locale);
 
-  return <DashboardShell messages={messages} />;
+  return <AdminDashboard messages={messages} />;
 }
