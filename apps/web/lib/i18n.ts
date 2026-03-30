@@ -15,6 +15,18 @@ export type Messages = {
   };
   dashboard: {
     title: string;
+    showArchived: string;
+    hideArchived: string;
+    archive: string;
+    unarchive: string;
+    delete: string;
+    resend: string;
+    resendSuccess: string;
+    resendDuplicate: string;
+    statusArchived: string;
+    statusDeleted: string;
+    deliveryFailed: string;
+    deliveryAttempts: string;
   };
   home: {
     title: string;

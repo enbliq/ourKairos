@@ -9,7 +9,19 @@
     "action": "Sign in"
   },
   "dashboard": {
-    "title": "Your Capsule Dashboard"
+    "title": "Your Capsule Dashboard",
+    "showArchived": "Show archived",
+    "hideArchived": "Hide archived",
+    "archive": "Archive",
+    "unarchive": "Restore",
+    "delete": "Delete",
+    "resend": "Resend",
+    "resendSuccess": "Resend queued",
+    "resendDuplicate": "Already sent recently — please wait",
+    "statusArchived": "Archived",
+    "statusDeleted": "Deleted",
+    "deliveryFailed": "Delivery failed",
+    "deliveryAttempts": "Attempts"
   },
   "home": {
     "title": "ourKairos",
