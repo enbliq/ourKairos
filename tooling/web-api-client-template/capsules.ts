@@ -12,6 +12,9 @@ export const createCapsulesClient = (options: ApiClientOptions) => {
     },
     detail(id: string) {
       return client.get(`/capsules/${id}`);
-    }
+    },
+    duplicate(id: string) {
+      return client.post(`/capsules/${id}/duplicate`, {});
+    },
   };
 };

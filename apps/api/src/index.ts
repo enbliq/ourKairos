@@ -2,10 +2,10 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import { connectDB } from './db/connect';
-import { adminRouter } from './admin/admin.routes';
-import { claimRouter } from './claim/claim.routes';
-// Import models so Mongoose registers indexes on startup
-import './db/models';
+import { authRateLimiter, publicTokenRateLimiter } from './middleware/rateLimiter';
+import { analyticsRouter } from './analytics/analytics.routes';
+import { capsulesRouter } from './capsules/capsule.routes';
+import { flags } from './flags';
 
 dotenv.config();
 
@@ -30,8 +30,15 @@ app.get('/health', (req, res) => {
   });
 });
 
-app.use('/admin', adminRouter);
-app.use('/capsules', claimRouter);
+// Expose active feature flags (read-only, no user context required for boolean flags)
+app.get('/flags', (_req, res) => {
+  const systemUser = { id: '__system__' };
+  res.json({
+    'gift-flow': flags.isEnabled('gift-flow', systemUser),
+    'reminders': flags.isEnabled('reminders', systemUser),
+    'email-delivery': flags.isEnabled('email-delivery', systemUser),
+  });
+});
 
 app.listen(port, () => {
   console.log(`API running on port ${port}`);

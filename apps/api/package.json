@@ -17,9 +17,11 @@
   "license": "ISC",
   "packageManager": "pnpm@10.14.0",
   "dependencies": {
+    "@repo/feature-flags": "workspace:*",
     "cors": "^2.8.6",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
+    "express-rate-limit": "^8.3.1",
     "mongoose": "^9.1.5"
   },
   "devDependencies": {

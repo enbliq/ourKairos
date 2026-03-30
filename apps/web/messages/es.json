@@ -10,7 +10,19 @@
     "action": "Entrar"
   },
   "dashboard": {
-    "title": "Tu panel de cápsulas"
+    "title": "Tu panel de cápsulas",
+    "showArchived": "Mostrar archivadas",
+    "hideArchived": "Ocultar archivadas",
+    "archive": "Archivar",
+    "unarchive": "Restaurar",
+    "delete": "Eliminar",
+    "resend": "Reenviar",
+    "resendSuccess": "Reenvío en cola",
+    "resendDuplicate": "Ya enviado recientemente — espera un momento",
+    "statusArchived": "Archivada",
+    "statusDeleted": "Eliminada",
+    "deliveryFailed": "Entrega fallida",
+    "deliveryAttempts": "Intentos"
   },
   "home": {
     "title": "ourKairos",
