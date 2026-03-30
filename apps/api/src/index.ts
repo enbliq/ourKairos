@@ -2,6 +2,9 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import { connectDB } from './db/connect';
+import { authRateLimiter, publicTokenRateLimiter } from './middleware/rateLimiter';
+import { analyticsRouter } from './analytics/analytics.routes';
+import { capsulesRouter } from './capsules/capsule.routes';
 import { flags } from './flags';
 
 dotenv.config();
