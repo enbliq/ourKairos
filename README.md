@@ -133,6 +133,8 @@ ourKairos/
    ```env
    MONGO_URI=mongodb://localhost:27017/ourkairos
    PORT=3001
+   JWT_SECRET=replace-with-a-long-random-string
+   CORS_ORIGIN=http://localhost:3000
    ```
 
 ---
@@ -161,11 +163,14 @@ pnpm build
 
 ## 🔌 API Highlights
 
-### Capsules
+### Auth
 
-- `POST /capsules` — Create a new capsule
-- `GET /capsules/:id` — Retrieve capsule details
-- `PATCH /capsules/:id` — Seal or update a capsule
+- `POST /auth/register` — Create an account
+- `POST /auth/login` — Sign in, sets a session cookie
+- `POST /auth/logout` — Clear the session
+- `GET /auth/me` — Current session's user
+
+See [docs/auth.md](docs/auth.md) for details.
 
 ### System
 
@@ -192,10 +197,6 @@ ourKairos is fully open-source and welcomes contributors across **Web2**, **Web3
 - **Linting:** Run `pnpm lint` before pushing
 
 ---
-
-## Reference templates
-
-The repository includes merge-safe Express observability templates in `tooling/express-observability-template`.
 
 ### Resources
 

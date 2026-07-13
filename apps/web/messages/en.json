@@ -3,26 +3,29 @@
     "home": "Home",
     "dashboard": "Dashboard",
     "login": "Login",
-    "admin": "Admin"
+    "register": "Register",
+    "logout": "Log out"
   },
   "login": {
     "title": "Welcome back",
-    "action": "Sign in"
+    "email": "Email",
+    "password": "Password",
+    "action": "Sign in",
+    "noAccount": "Don't have an account?",
+    "registerLink": "Create one"
+  },
+  "register": {
+    "title": "Create your account",
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "action": "Sign up",
+    "hasAccount": "Already have an account?",
+    "loginLink": "Sign in"
   },
   "dashboard": {
-    "title": "Your Capsule Dashboard",
-    "showArchived": "Show archived",
-    "hideArchived": "Hide archived",
-    "archive": "Archive",
-    "unarchive": "Restore",
-    "delete": "Delete",
-    "resend": "Resend",
-    "resendSuccess": "Resend queued",
-    "resendDuplicate": "Already sent recently — please wait",
-    "statusArchived": "Archived",
-    "statusDeleted": "Deleted",
-    "deliveryFailed": "Delivery failed",
-    "deliveryAttempts": "Attempts"
+    "title": "Dashboard",
+    "welcome": "You're signed in as {name}."
   },
   "home": {
     "title": "ourKairos",
@@ -31,19 +34,8 @@
   "errors": {
     "generic": "Something went wrong. Please try again.",
     "retry": "Retry",
-    "loading": "Loading..."
-  },
-  "admin": {
-    "title": "Admin Dashboard",
-    "users": "Total Users",
-    "capsules": "Total Capsules",
-    "recent": "Recent Capsules"
-  },
-  "claim": {
-    "title": "Your Gift",
-    "locked": "This gift is not yet available. Check back after the unlock date.",
-    "unlocked": "Your gift is ready!",
-    "acknowledge": "Mark as Claimed",
-    "acknowledged": "Gift claimed!"
+    "loading": "Loading...",
+    "invalidCredentials": "Invalid email or password.",
+    "emailInUse": "An account with this email already exists."
   }
 }

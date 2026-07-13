@@ -48,3 +48,6 @@ dist
 .next
 .env
 .DS_Store
+
+# local agent/dev tooling, not part of the project
+.claude/

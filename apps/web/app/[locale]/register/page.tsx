@@ -1,12 +1,12 @@
 import { notFound } from 'next/navigation';
 import { getMessages, isLocale, type Locale } from '@/lib/i18n';
-import { LoginForm } from './LoginForm';
+import { RegisterForm } from './RegisterForm';
 
-type LoginPageProps = {
+type RegisterPageProps = {
   params: Promise<{ locale: string }>;
 };
 
-export default async function LoginPage({ params }: LoginPageProps) {
+export default async function RegisterPage({ params }: RegisterPageProps) {
   const { locale } = await params;
   if (!isLocale(locale)) {
     notFound();
@@ -14,5 +14,5 @@ export default async function LoginPage({ params }: LoginPageProps) {
 
   const messages = await getMessages(locale as Locale);
 
-  return <LoginForm locale={locale} messages={messages} />;
+  return <RegisterForm locale={locale} messages={messages} />;
 }

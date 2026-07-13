@@ -16,11 +16,13 @@ async function apiFetch<T>(
   try {
     const res = await fetch(`${API_BASE}${path}`, {
       ...options,
+      credentials: 'include',
       signal: controller.signal,
     });
 
     if (!res.ok) {
-      return { data: null, error: `Request failed: ${res.status}` };
+      const body = (await res.json().catch(() => null)) as { error?: string } | null;
+      return { data: null, error: body?.error ?? `Request failed: ${res.status}` };
     }
 
     const data = (await res.json()) as T;
