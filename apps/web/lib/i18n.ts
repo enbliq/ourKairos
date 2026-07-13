@@ -8,26 +8,29 @@ export type Messages = {
     home: string;
     dashboard: string;
     login: string;
-    admin: string;
+    register: string;
+    logout: string;
   };
   login: {
     title: string;
+    email: string;
+    password: string;
     action: string;
+    noAccount: string;
+    registerLink: string;
+  };
+  register: {
+    title: string;
+    name: string;
+    email: string;
+    password: string;
+    action: string;
+    hasAccount: string;
+    loginLink: string;
   };
   dashboard: {
     title: string;
-    showArchived: string;
-    hideArchived: string;
-    archive: string;
-    unarchive: string;
-    delete: string;
-    resend: string;
-    resendSuccess: string;
-    resendDuplicate: string;
-    statusArchived: string;
-    statusDeleted: string;
-    deliveryFailed: string;
-    deliveryAttempts: string;
+    welcome: string;
   };
   home: {
     title: string;
@@ -37,19 +40,8 @@ export type Messages = {
     generic: string;
     retry: string;
     loading: string;
-  };
-  admin: {
-    title: string;
-    users: string;
-    capsules: string;
-    recent: string;
-  };
-  claim: {
-    title: string;
-    locked: string;
-    unlocked: string;
-    acknowledge: string;
-    acknowledged: string;
+    invalidCredentials: string;
+    emailInUse: string;
   };
 };
 

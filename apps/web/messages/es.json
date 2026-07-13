@@ -3,26 +3,29 @@
     "home": "Inicio",
     "dashboard": "Panel",
     "login": "Iniciar sesión",
-    "admin": "Admin"
+    "register": "Registrarse",
+    "logout": "Cerrar sesión"
   },
   "login": {
     "title": "Bienvenido de nuevo",
-    "action": "Entrar"
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "action": "Entrar",
+    "noAccount": "¿No tienes una cuenta?",
+    "registerLink": "Crea una"
+  },
+  "register": {
+    "title": "Crea tu cuenta",
+    "name": "Nombre",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "action": "Registrarse",
+    "hasAccount": "¿Ya tienes una cuenta?",
+    "loginLink": "Inicia sesión"
   },
   "dashboard": {
-    "title": "Tu panel de cápsulas",
-    "showArchived": "Mostrar archivadas",
-    "hideArchived": "Ocultar archivadas",
-    "archive": "Archivar",
-    "unarchive": "Restaurar",
-    "delete": "Eliminar",
-    "resend": "Reenviar",
-    "resendSuccess": "Reenvío en cola",
-    "resendDuplicate": "Ya enviado recientemente — espera un momento",
-    "statusArchived": "Archivada",
-    "statusDeleted": "Eliminada",
-    "deliveryFailed": "Entrega fallida",
-    "deliveryAttempts": "Intentos"
+    "title": "Panel",
+    "welcome": "Has iniciado sesión como {name}."
   },
   "home": {
     "title": "ourKairos",
@@ -31,19 +34,8 @@
   "errors": {
     "generic": "Algo salió mal. Por favor, inténtalo de nuevo.",
     "retry": "Reintentar",
-    "loading": "Cargando..."
-  },
-  "admin": {
-    "title": "Panel de administración",
-    "users": "Usuarios totales",
-    "capsules": "Cápsulas totales",
-    "recent": "Cápsulas recientes"
-  },
-  "claim": {
-    "title": "Tu regalo",
-    "locked": "Este regalo aún no está disponible. Vuelve después de la fecha de desbloqueo.",
-    "unlocked": "¡Tu regalo está listo!",
-    "acknowledge": "Marcar como reclamado",
-    "acknowledged": "¡Regalo reclamado!"
+    "loading": "Cargando...",
+    "invalidCredentials": "Correo o contraseña inválidos.",
+    "emailInUse": "Ya existe una cuenta con este correo."
   }
 }

@@ -1,11 +1,10 @@
-import express from 'express';
-import dotenv from 'dotenv';
+import cookieParser from 'cookie-parser';
 import cors from 'cors';
+import dotenv from 'dotenv';
+import express from 'express';
+import { authRouter } from './auth/auth.routes';
+import { attachSession } from './auth/session.middleware';
 import { connectDB } from './db/connect';
-import { authRateLimiter, publicTokenRateLimiter } from './middleware/rateLimiter';
-import { analyticsRouter } from './analytics/analytics.routes';
-import { capsulesRouter } from './capsules/capsule.routes';
-import { flags } from './flags';
 
 dotenv.config();
 
@@ -17,12 +16,15 @@ const port = process.env.PORT || 3001;
 app.use(
   cors({
     origin: process.env.CORS_ORIGIN ?? 'http://localhost:3000',
+    credentials: true,
   }),
 );
 
 app.use(express.json());
+app.use(cookieParser());
+app.use(attachSession);
 
-app.get('/health', (req, res) => {
+app.get('/health', (_req, res) => {
   res.json({
     status: 'ok',
     service: 'api',
@@ -30,15 +32,7 @@ app.get('/health', (req, res) => {
   });
 });
 
-// Expose active feature flags (read-only, no user context required for boolean flags)
-app.get('/flags', (_req, res) => {
-  const systemUser = { id: '__system__' };
-  res.json({
-    'gift-flow': flags.isEnabled('gift-flow', systemUser),
-    'reminders': flags.isEnabled('reminders', systemUser),
-    'email-delivery': flags.isEnabled('email-delivery', systemUser),
-  });
-});
+app.use('/auth', authRouter);
 
 app.listen(port, () => {
   console.log(`API running on port ${port}`);
